@@ -1,0 +1,20 @@
+package com.turmaa.helpdesk;
+
+import java.io.Serializable;
+import java.time.LocalDate;
+import java.util.HashSet;
+import java.util.Set;
+import java.util.stream.Collectors;
+
+import javax.persistence.*;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotNull;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.turmaa.helpdesk.domain.enums.Perfil;
+
+@Entity
+@Inheritance(strategy = InheritanceType.JOINED) //Herança JPA
+public abstract class Pessoa {
+
+}
