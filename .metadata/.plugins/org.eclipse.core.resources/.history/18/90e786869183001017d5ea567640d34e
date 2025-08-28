@@ -1,0 +1,35 @@
+package com.turmaa.helpdesk;
+
+import java.util.Arrays;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.CommandLineRunner;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+import com.turmaa.helpdesk.domain.Chamado;
+import com.turmaa.helpdesk.domain.Cliente;
+import com.turmaa.helpdesk.domain.Tecnico;
+import com.turmaa.helpdesk.domain.enums.Perfil;
+import com.turmaa.helpdesk.domain.enums.Prioridade;
+import com.turmaa.helpdesk.domain.enums.Status;
+import com.turmaa.helpdesk.repositories.ChamadoRepository;
+import com.turmaa.helpdesk.repositories.ClienteRepository;
+import com.turmaa.helpdesk.repositories.TecnicoRepository;
+
+@SpringBootApplication
+public class HelpdeskturmaaApplication implements CommandLineRunner {
+	
+	
+	public static void main(String[] args) {
+		SpringApplication.run(HelpdeskturmaaApplication.class, args);
+		System.out.println("===================================================");
+        System.out.println("   APLICAÇÃO HELPDESK INICIADA COM SUCESSO");
+        System.out.println("===================================================");
+	}
+	
+	@Override
+    public void run(String... args) throws Exception {
+        
+    }
+}

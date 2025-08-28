@@ -1,0 +1,9 @@
+package com.turma.helpdesk.repositories;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.turmaa.helpdesk.domain.Tecnico;
+
+public interface TecnicoRepository extends JpaRepository<Tecnico, Integer> {
+    // Métodos customizados podem ser criados aqui também
+}

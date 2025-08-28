@@ -1,2 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<qualifiedTypeNameHistroy/>
+<qualifiedTypeNameHistroy>
+    <fullyQualifiedTypeName name="javax.validation.constraints.AssertFalse"/>
+    <fullyQualifiedTypeName name="com.turmaa.helpdesk.domain.Tecnico"/>
+    <fullyQualifiedTypeName name="com.turmaa.helpdesk.domain.enums.Perfil"/>
+    <fullyQualifiedTypeName name="java.util.Arrays"/>
+</qualifiedTypeNameHistroy>
