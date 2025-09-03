@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.turmaa.helpdesk.domain.dtos.TecnicoDTO;
 import com.turmaa.helpdesk.domain.enums.Perfil;
 
 @Entity
@@ -34,5 +35,12 @@ public class Tecnico extends Pessoa{
 	
 	public void setChamados(List<Chamado> chamados) {
 		this.chamados = chamados;
+	}
+	
+	public Tecnico(TecnicoDTO dto) {
+	    this.id = dto.getId();
+	    this.nome = dto.getNome();
+	    this.cpf = dto.getCpf();
+	    this.email = dto.getEmail();
 	}
 }

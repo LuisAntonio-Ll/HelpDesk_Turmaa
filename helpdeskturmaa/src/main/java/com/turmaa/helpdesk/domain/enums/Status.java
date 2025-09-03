@@ -1,4 +1,6 @@
-		package com.turmaa.helpdesk.domain.enums;
+package com.turmaa.helpdesk.domain.enums;
+
+import javax.validation.constraints.NotNull;
 
 public enum Status {
 

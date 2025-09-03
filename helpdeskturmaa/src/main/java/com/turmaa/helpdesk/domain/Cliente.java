@@ -6,6 +6,7 @@ import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 
+import com.turmaa.helpdesk.domain.dtos.ClienteDTO;
 import com.turmaa.helpdesk.domain.enums.Perfil;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -32,5 +33,13 @@ public class Cliente extends Pessoa {
     }
     public void setChamados(List<Chamado> chamados) {
         this.chamados = chamados;
+    }
+    
+    public Cliente(ClienteDTO dto) {
+        this.id = dto.getId();
+        this.nome = dto.getNome();
+        this.cpf = dto.getCpf();
+        this.email = dto.getEmail();
+
     }
 }

@@ -4,4 +4,12 @@
     <fullyQualifiedTypeName name="com.turmaa.helpdesk.domain.Tecnico"/>
     <fullyQualifiedTypeName name="com.turmaa.helpdesk.domain.enums.Perfil"/>
     <fullyQualifiedTypeName name="java.util.Arrays"/>
+    <fullyQualifiedTypeName name="com.turmaa.helpdesk.repositories.TecnicoRepository"/>
+    <fullyQualifiedTypeName name="ch.qos.logback.core.status.Status"/>
+    <fullyQualifiedTypeName name="com.sun.org.apache.xerces.internal.util.URI"/>
+    <fullyQualifiedTypeName name="com.sun.el.stream.Optional"/>
+    <fullyQualifiedTypeName name="javassist.tools.rmi.ObjectNotFoundException"/>
+    <fullyQualifiedTypeName name="antlr.collections.List"/>
+    <fullyQualifiedTypeName name="com.turmaa.helpdesk.service.exceptions.DataIntegrityViolationException"/>
+    <fullyQualifiedTypeName name="com.turmaa.helpdesk.service.exceptions.ObjectNotFoundException"/>
 </qualifiedTypeNameHistroy>

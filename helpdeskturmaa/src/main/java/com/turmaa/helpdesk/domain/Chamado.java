@@ -7,6 +7,7 @@ import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.turmaa.helpdesk.domain.dtos.ChamadoDTO;
 import com.turmaa.helpdesk.domain.enums.Prioridade;
 import com.turmaa.helpdesk.domain.enums.Status;
 
@@ -59,6 +60,16 @@ public class Chamado implements Serializable {
         this.observacoes = observacoes;
         this.tecnico = tecnico;
         this.cliente = cliente;
+	}
+	
+	public Chamado(ChamadoDTO dto, Tecnico tecnico, Cliente cliente) {
+	    this.id = dto.getId();
+	    this.titulo = dto.getTitulo();
+	    this.observacoes = dto.getObservacoes();
+	    this.prioridade = dto.getPrioridade().getCodigo();
+	    this.status = dto.getStatus().getCodigo();         
+	    this.tecnico = tecnico;
+	    this.cliente = cliente;
 	}
 
 	public Integer getId() {
