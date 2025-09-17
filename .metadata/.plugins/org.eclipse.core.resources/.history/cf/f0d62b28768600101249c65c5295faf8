@@ -1,5 +1,0 @@
-package com.turmaa.helpdesk.domain.dtos;
-
-public class TecnicoDTO {
-
-}

@@ -10,7 +10,7 @@ public class ClienteDTO implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	private Integer id;
-
+	
 	@NotNull(message = "O campo NOME é obrigatório")
 	private String nome;
 
@@ -19,6 +19,10 @@ public class ClienteDTO implements Serializable {
 
 	@NotNull(message = "O campo EMAIL é obrigatório")
 	private String email;
+	
+	@NotNull(message = "O campo SENHA é obrigatório")
+	private String senha;
+
 
 	public ClienteDTO() {
 		super();
@@ -29,6 +33,7 @@ public class ClienteDTO implements Serializable {
 		this.nome = obj.getNome();
 		this.cpf = obj.getCpf();
 		this.email = obj.getEmail();
+		this.senha = obj.getSenha();
 	}
 
 	// Getters e Setters
@@ -62,5 +67,13 @@ public class ClienteDTO implements Serializable {
 
 	public void setEmail(String email) {
 		this.email = email;
+	}
+	
+	public String getSenha() {
+	    return senha;
+	}
+
+	public void setSenha(String senha) {
+	    this.senha = senha;
 	}
 }

@@ -1,9 +1,11 @@
 package com.turmaa.helpdesk.domain.dtos;
 
 import java.io.Serializable;
+import java.time.LocalDate;
 
 import javax.validation.constraints.NotNull;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.turmaa.helpdesk.domain.Chamado;
 import com.turmaa.helpdesk.domain.enums.Prioridade;
 import com.turmaa.helpdesk.domain.enums.Status;
@@ -12,7 +14,13 @@ public class ChamadoDTO implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	private Integer id;
+	
+	@JsonFormat(pattern = "dd/MM/yyyy")
+	private LocalDate dataAbertura = LocalDate.now();
 
+	@JsonFormat(pattern = "dd/MM/yyyy")
+	private LocalDate dataFechamento;
+	
 	@NotNull(message = "O campo TITULO é obrigatório")
 	private String titulo;
 
@@ -24,15 +32,23 @@ public class ChamadoDTO implements Serializable {
 
 	@NotNull(message = "O campo STATUS é obrigatório")
 	private Status status;
-
-	private Integer tecnico;  // ID do técnico responsável
+	
+	@NotNull(message ="O campo TECNICO é obrigatorio")
+	private Integer tecnico; // ID do técnico responsável
+	
+	@NotNull(message = "O campo CLIENTE é obrigatorio")
 	private Integer cliente;  // ID do cliente que abriu o chamado
+	
+	private String nomeTecnico;
+	private String nomeCliente;
 
 	public ChamadoDTO() {
 		super();
 	}
 
 	public ChamadoDTO(Chamado obj) {
+		this.dataAbertura = obj.getDataAbertura();
+		this.dataFechamento = obj.getDataFechamento();
 		this.id = obj.getId();
 		this.titulo = obj.getTitulo();
 		this.observacoes = obj.getObservacoes();
@@ -40,6 +56,8 @@ public class ChamadoDTO implements Serializable {
 		this.status = obj.getStatus();
 		this.tecnico = obj.getTecnico().getId();
 		this.cliente = obj.getCliente().getId();
+		this.nomeTecnico = obj.getTecnico().getNome();
+		this.nomeCliente = obj.getCliente().getNome();
 	}
 
 	// Getters e Setters
@@ -98,4 +116,39 @@ public class ChamadoDTO implements Serializable {
 	public void setCliente(Integer cliente) {
 		this.cliente = cliente;
 	}
+	
+	public LocalDate getDataAbertura() {
+		return dataAbertura;
+	}
+	
+	public void setDataAbertura(LocalDate dataAbertura) {
+		this.dataAbertura = dataAbertura;
+	}
+	
+	public LocalDate getDataFechamento() {
+		return dataFechamento;
+	}
+	
+	public void setDataFechamento(LocalDate dataFechamento) {
+		this.dataFechamento = dataFechamento;
+	}
+
+	public String getNomeTecnico() {
+		return nomeTecnico;
+	}
+
+	public void setNomeTecnico(String nomeTecnico) {
+		this.nomeTecnico = nomeTecnico;
+	}
+
+	public String getNomeCliente() {
+		return nomeCliente;
+	}
+
+	public void setNomeCliente(String nomeCliente) {
+		this.nomeCliente = nomeCliente;
+	}
+	
+	
+	
 }

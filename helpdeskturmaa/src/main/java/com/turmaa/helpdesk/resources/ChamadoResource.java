@@ -38,7 +38,7 @@ public class ChamadoResource {
 		Chamado newObj = service.create(objDto);
 		URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}")
 				.buildAndExpand(newObj.getId()).toUri();
-		return ResponseEntity.created(uri).body(new ChamadoDTO(newObj));
+		return ResponseEntity.created(uri).build();
 	}
 
 	@PutMapping(value = "/{id}")
@@ -46,4 +46,10 @@ public class ChamadoResource {
 		Chamado updatedObj = service.update(id, objDto);
 		return ResponseEntity.ok().body(new ChamadoDTO(updatedObj));
 	}
+	
+	@DeleteMapping(value = "/{id}")
+	public ResponseEntity<Void> delete(@PathVariable Integer id) {
+	    service.delete(id);
+	    return ResponseEntity.noContent().build();
+	    }
 }

@@ -1,5 +1,6 @@
 package com.turmaa.helpdesk.service;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -11,6 +12,7 @@ import com.turmaa.helpdesk.domain.Chamado;
 import com.turmaa.helpdesk.domain.Cliente;
 import com.turmaa.helpdesk.domain.Tecnico;
 import com.turmaa.helpdesk.domain.dtos.ChamadoDTO;
+import com.turmaa.helpdesk.domain.enums.Status;
 import com.turmaa.helpdesk.repositories.ChamadoRepository;
 import com.turmaa.helpdesk.service.exceptions.ObjectNotFoundException;
 
@@ -50,6 +52,10 @@ public class ChamadoService {
 	    Tecnico tecnico = tecnicoService.findById(objDto.getTecnico());
 	    Cliente cliente = clienteService.findById(objDto.getCliente());
 	    Chamado chamado = new Chamado(objDto, tecnico, cliente);
+	    if (objDto.getStatus() == Status.ENCERRADO && chamado.getDataFechamento() == null) {
+	        chamado.setDataFechamento(LocalDate.now());
+	    }
+
 	    return repository.save(chamado);
 	}
 	

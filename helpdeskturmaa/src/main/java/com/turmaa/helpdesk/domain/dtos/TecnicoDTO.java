@@ -24,16 +24,20 @@ public class TecnicoDTO implements Serializable {
 	@NotNull(message = "O campo EMAIL é obrigatório")
 	private String email;
 
+	@NotNull(message = "O campo SENHA é obrigatório")
+	private String senha;
+
+	
 	public TecnicoDTO() {
 		super();
 	}
 
-	// Construtor que recebe a entidade Tecnico e converte para DTO
 	public TecnicoDTO(Tecnico obj) {
 		this.id = obj.getId();
 		this.nome = obj.getNome();
 		this.cpf = obj.getCpf();
 		this.email = obj.getEmail();
+		this.senha = obj.getSenha();
 	}
 
 	// Getters e Setters
@@ -68,4 +72,13 @@ public class TecnicoDTO implements Serializable {
 	public void setEmail(String email) {
 		this.email = email;
 	}
+	
+	public String getSenha() {
+	    return senha;
+	}
+
+	public void setSenha(String senha) {
+	    this.senha = senha;
+	}
+
 }

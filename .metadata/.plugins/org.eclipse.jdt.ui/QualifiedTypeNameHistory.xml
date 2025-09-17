@@ -9,7 +9,8 @@
     <fullyQualifiedTypeName name="com.sun.org.apache.xerces.internal.util.URI"/>
     <fullyQualifiedTypeName name="com.sun.el.stream.Optional"/>
     <fullyQualifiedTypeName name="javassist.tools.rmi.ObjectNotFoundException"/>
-    <fullyQualifiedTypeName name="antlr.collections.List"/>
     <fullyQualifiedTypeName name="com.turmaa.helpdesk.service.exceptions.DataIntegrityViolationException"/>
     <fullyQualifiedTypeName name="com.turmaa.helpdesk.service.exceptions.ObjectNotFoundException"/>
+    <fullyQualifiedTypeName name="antlr.collections.List"/>
+    <fullyQualifiedTypeName name="java.util.List"/>
 </qualifiedTypeNameHistroy>
