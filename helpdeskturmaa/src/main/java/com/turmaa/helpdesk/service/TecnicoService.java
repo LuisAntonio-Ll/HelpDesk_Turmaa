@@ -5,6 +5,8 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+
 import com.turmaa.helpdesk.service.exceptions.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
 
@@ -32,6 +34,10 @@ public class TecnicoService {
 	 */
 	@Autowired
 	private TecnicoRepository repository;
+	
+	@Autowired
+	private BCryptPasswordEncoder encoder;
+
 	
 	/**
 	 * Busca um técnico no banco de dados pelo seu ID.
@@ -63,6 +69,10 @@ public class TecnicoService {
 		if (repository.findByCpf(objDto.getCpf()).isPresent()) {
 			throw new DataIntegrityViolationException("CPF já cadastrado no sistema!");
 		}
+		Tecnico tecnico = new Tecnico(objDto);
+
+	    // Criptografa a senha antes de salvar
+	    tecnico.setSenha(encoder.encode(objDto.getSenha()));
 		return repository.save(new Tecnico(objDto));
 	}
 

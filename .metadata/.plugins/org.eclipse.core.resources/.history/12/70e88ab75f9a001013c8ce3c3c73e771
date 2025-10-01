@@ -1,0 +1,5 @@
+package com.turmaa.helpdesk.security;
+
+public class JWTAuthorizationFilter {
+
+}

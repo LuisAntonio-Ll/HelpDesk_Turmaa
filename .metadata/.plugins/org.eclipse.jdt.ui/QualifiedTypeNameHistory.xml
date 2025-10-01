@@ -3,7 +3,6 @@
     <fullyQualifiedTypeName name="javax.validation.constraints.AssertFalse"/>
     <fullyQualifiedTypeName name="com.turmaa.helpdesk.domain.Tecnico"/>
     <fullyQualifiedTypeName name="com.turmaa.helpdesk.domain.enums.Perfil"/>
-    <fullyQualifiedTypeName name="java.util.Arrays"/>
     <fullyQualifiedTypeName name="com.turmaa.helpdesk.repositories.TecnicoRepository"/>
     <fullyQualifiedTypeName name="ch.qos.logback.core.status.Status"/>
     <fullyQualifiedTypeName name="com.sun.org.apache.xerces.internal.util.URI"/>
@@ -13,4 +12,8 @@
     <fullyQualifiedTypeName name="com.turmaa.helpdesk.service.exceptions.ObjectNotFoundException"/>
     <fullyQualifiedTypeName name="antlr.collections.List"/>
     <fullyQualifiedTypeName name="java.util.List"/>
+    <fullyQualifiedTypeName name="org.springframework.web.cors.reactive.UrlBasedCorsConfigurationSource"/>
+    <fullyQualifiedTypeName name="org.hibernate.cfg.Environment"/>
+    <fullyQualifiedTypeName name="java.util.Arrays"/>
+    <fullyQualifiedTypeName name="org.springframework.web.cors.CorsConfigurationSource"/>
 </qualifiedTypeNameHistroy>

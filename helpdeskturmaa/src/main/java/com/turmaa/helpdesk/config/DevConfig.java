@@ -9,7 +9,7 @@ import org.springframework.context.annotation.Profile;
 import com.turmaa.helpdesk.service.DBService;
 
 @Configuration
-@Profile("Dev")
+@Profile("dev")
 public class DevConfig {
 	
 	@Autowired
