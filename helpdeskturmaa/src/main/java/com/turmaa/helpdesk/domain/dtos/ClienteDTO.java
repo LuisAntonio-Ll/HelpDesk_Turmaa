@@ -4,6 +4,8 @@ import java.io.Serializable;
 
 import javax.validation.constraints.NotNull;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonProperty.Access;
 import com.turmaa.helpdesk.domain.Cliente;
 
 public class ClienteDTO implements Serializable {
@@ -20,6 +22,7 @@ public class ClienteDTO implements Serializable {
 	@NotNull(message = "O campo EMAIL é obrigatório")
 	private String email;
 	
+	@JsonProperty(access = Access.WRITE_ONLY)
 	@NotNull(message = "O campo SENHA é obrigatório")
 	private String senha;
 

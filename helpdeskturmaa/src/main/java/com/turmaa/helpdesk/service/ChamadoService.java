@@ -47,7 +47,7 @@ public class ChamadoService {
 	}
 
 	public Chamado update(Integer id, ChamadoDTO objDto) {
-		findById(id); // Garante que o chamado existe
+		findById(id);
 	    objDto.setId(id);
 	    Tecnico tecnico = tecnicoService.findById(objDto.getTecnico());
 	    Cliente cliente = clienteService.findById(objDto.getCliente());

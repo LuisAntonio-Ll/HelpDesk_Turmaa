@@ -16,4 +16,6 @@
     <fullyQualifiedTypeName name="org.hibernate.cfg.Environment"/>
     <fullyQualifiedTypeName name="java.util.Arrays"/>
     <fullyQualifiedTypeName name="org.springframework.web.cors.CorsConfigurationSource"/>
+    <fullyQualifiedTypeName name="com.turmaa.helpdesk.security.JWTAuthorizationFilter"/>
+    <fullyQualifiedTypeName name="com.fasterxml.jackson.annotation.JsonProperty.Access"/>
 </qualifiedTypeNameHistroy>

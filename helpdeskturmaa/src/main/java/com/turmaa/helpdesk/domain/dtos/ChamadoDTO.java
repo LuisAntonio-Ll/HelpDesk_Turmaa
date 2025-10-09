@@ -34,10 +34,10 @@ public class ChamadoDTO implements Serializable {
 	private Status status;
 	
 	@NotNull(message ="O campo TECNICO é obrigatorio")
-	private Integer tecnico; // ID do técnico responsável
+	private Integer tecnico;
 	
 	@NotNull(message = "O campo CLIENTE é obrigatorio")
-	private Integer cliente;  // ID do cliente que abriu o chamado
+	private Integer cliente;
 	
 	private String nomeTecnico;
 	private String nomeCliente;

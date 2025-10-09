@@ -15,7 +15,7 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import com.turmaa.helpdesk.domain.enums.Perfil;
 
 @Entity
-@Inheritance(strategy = InheritanceType.JOINED) // Herança JPA
+@Inheritance(strategy = InheritanceType.JOINED)
 public abstract class Pessoa implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
@@ -46,7 +46,7 @@ public abstract class Pessoa implements Serializable {
 	
 	public Pessoa() {
 	       super();
-	       addPerfil(Perfil.CLIENTE); // Perfil padrão
+	       addPerfil(Perfil.CLIENTE);
 	    }
 	 
 	public Pessoa(Integer id, String nome, String cpf, String email, String senha) {

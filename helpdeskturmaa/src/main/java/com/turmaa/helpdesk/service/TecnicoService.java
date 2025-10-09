@@ -12,45 +12,22 @@ import org.springframework.stereotype.Service;
 
 import com.turmaa.helpdesk.domain.Tecnico;
 import com.turmaa.helpdesk.domain.dtos.TecnicoDTO;
+import com.turmaa.helpdesk.repositories.PessoaRepository;
 import com.turmaa.helpdesk.repositories.TecnicoRepository;
 import com.turmaa.helpdesk.service.exceptions.ObjectNotFoundException;
 
-/**
- * Classe de serviço responsável por implementar a lógica de negócio
- * para a entidade {@link com.wagner.helpdesk.domain.Tecnico}.
- * <p>
- * Anotada com {@code @Service}, é um componente gerenciado pelo Spring,
- * atuando como a camada intermediária entre o controlador e o repositório
- * de dados.
- * </p>
- */
 @Service
 public class TecnicoService {
 
-	/**
-	 * Injeção de dependência do repositório de dados para a entidade Tecnico.
-	 * O Spring cria e gerencia a instância desta interface, permitindo
-	 * o acesso aos métodos de persistência do JpaRepository.
-	 */
 	@Autowired
 	private TecnicoRepository repository;
 	
 	@Autowired
+	private PessoaRepository pessoaRepository;
+
+	@Autowired
 	private BCryptPasswordEncoder encoder;
 
-	
-	/**
-	 * Busca um técnico no banco de dados pelo seu ID.
-	 * <p>
-	 * O método utiliza o {@link java.util.Optional} para lidar com a
-	 * ausência de um objeto, evitando {@code NullPointerException}.
-	 * Se o técnico não for encontrado, uma exceção personalizada é lançada.
-	 * </p>
-	 *
-	 * @param id O ID do técnico a ser buscado.
-	 * @return Um objeto {@link com.wagner.helpdesk.domain.Tecnico} se ele for encontrado.
-	 * @throws ObjectNotFoundException Se nenhum técnico com o ID fornecido for encontrado.
-	 */
 	public Tecnico findById(Integer id) {
 		
 		Optional<Tecnico> obj = repository.findById(id);
@@ -66,12 +43,15 @@ public class TecnicoService {
 	}
 
 	public Tecnico create(TecnicoDTO objDto) {
-		if (repository.findByCpf(objDto.getCpf()).isPresent()) {
+		if (pessoaRepository.findByCpf(objDto.getCpf()).isPresent()) {
 			throw new DataIntegrityViolationException("CPF já cadastrado no sistema!");
 		}
+		if (pessoaRepository.findByEmail(objDto.getEmail()).isPresent()) {
+		    throw new DataIntegrityViolationException("Email já cadastrado no sistema!");
+		}
+
 		Tecnico tecnico = new Tecnico(objDto);
 
-	    // Criptografa a senha antes de salvar
 	    tecnico.setSenha(encoder.encode(objDto.getSenha()));
 		return repository.save(new Tecnico(objDto));
 	}
@@ -79,8 +59,12 @@ public class TecnicoService {
 	public Tecnico update(Integer id, TecnicoDTO objDto) {
 		Tecnico oldObj = findById(id);
 
-		if (!oldObj.getCpf().equals(objDto.getCpf()) && repository.findByCpf(objDto.getCpf()).isPresent()) {
+		if (!oldObj.getCpf().equals(objDto.getCpf()) && pessoaRepository.findByCpf(objDto.getCpf()).isPresent()) {
 			throw new DataIntegrityViolationException("CPF já cadastrado no sistema!");
+		}
+		
+		if (!oldObj.getEmail().equals(objDto.getEmail()) && pessoaRepository.findByEmail(objDto.getEmail()).isPresent()) {
+			    throw new DataIntegrityViolationException("Email já cadastrado no sistema!");
 		}
 
 		oldObj.setNome(objDto.getNome());

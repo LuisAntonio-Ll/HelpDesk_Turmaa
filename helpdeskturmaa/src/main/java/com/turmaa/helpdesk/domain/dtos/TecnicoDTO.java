@@ -4,12 +4,10 @@ import java.io.Serializable;
 
 import javax.validation.constraints.NotNull;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonProperty.Access;
 import com.turmaa.helpdesk.domain.Tecnico;
 
-/**
- * DTO usado para transferir dados da entidade Tecnico
- * sem expor diretamente o objeto de domínio.
- */
 public class TecnicoDTO implements Serializable {
 	private static final long serialVersionUID = 1L;
 
@@ -23,7 +21,8 @@ public class TecnicoDTO implements Serializable {
 
 	@NotNull(message = "O campo EMAIL é obrigatório")
 	private String email;
-
+	
+	@JsonProperty(access = Access.WRITE_ONLY)
 	@NotNull(message = "O campo SENHA é obrigatório")
 	private String senha;
 
@@ -40,7 +39,6 @@ public class TecnicoDTO implements Serializable {
 		this.senha = obj.getSenha();
 	}
 
-	// Getters e Setters
 	public Integer getId() {
 		return id;
 	}
