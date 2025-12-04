@@ -47,10 +47,11 @@ public class ClienteService {
 		    throw new DataIntegrityViolationException("Email já cadastrado no sistema!");
 		}
 
-		Cliente cliente = new Cliente(objDto);
-
-	    cliente.setSenha(encoder.encode(objDto.getSenha()));
-		return repository.save(new Cliente(objDto));
+		objDto.setSenha(encoder.encode(objDto.getSenha()));
+		
+		Cliente novoCliente = new Cliente(objDto);
+		
+		return repository.save(novoCliente);
 	}
 
 	public Cliente update(Integer id, ClienteDTO objDto) {

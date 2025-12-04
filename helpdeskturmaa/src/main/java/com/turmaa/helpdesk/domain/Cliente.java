@@ -41,5 +41,12 @@ public class Cliente extends Pessoa {
         this.cpf = dto.getCpf();
         this.email = dto.getEmail();
         this.senha = dto.getSenha();
+        this.perfis.clear(); 
+        
+        // 4. Adiciona os novos perfis
+        dto.getPerfis().forEach(p -> {
+            // Converte a string ('ADMIN', 'TECNICO') para o ENUM e adiciona o código (0, 2)
+            addPerfil(Perfil.valueOf(p));
+        });
     }
 }

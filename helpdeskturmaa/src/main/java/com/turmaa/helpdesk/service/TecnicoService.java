@@ -50,10 +50,9 @@ public class TecnicoService {
 		    throw new DataIntegrityViolationException("Email já cadastrado no sistema!");
 		}
 
-		Tecnico tecnico = new Tecnico(objDto);
-
-	    tecnico.setSenha(encoder.encode(objDto.getSenha()));
-		return repository.save(new Tecnico(objDto));
+		objDto.setSenha(encoder.encode(objDto.getSenha()));
+		Tecnico novoTecnico = new Tecnico(objDto);
+		return repository.save(novoTecnico);
 	}
 
 	public Tecnico update(Integer id, TecnicoDTO objDto) {
